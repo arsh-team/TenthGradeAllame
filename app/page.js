@@ -1,103 +1,85 @@
-import Image from "next/image";
+// Made by the guy you copied from
+
+
+import { Card, CardContent } from "./components/ui/card"
+
+
+const iranianStudents = [
+  { id: 1, name: "کوچولو", age: 9, city: "شهر قدس" },
+  { id: 2, name: "بقیه بچه ها", age: 15, city: "شهر قدس" },
+]
+
+const foreignStudents = [
+  { id: 1, name: "امیرعباس ملازاده", age: 16, city: "کابل" },
+]
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main
+    className="min-h-screen bg-gradient-to-br text-white flex flex-col items-center py-12"
+    style={{
+      fontFamily: 'vazir', 
+      backgroundColor: "rgba(0,126,255,1)",
+      backgroundImage: `
+        radial-gradient(at 83% 46%, rgba(255,168,173,1) 0%, transparent 50%),
+        radial-gradient(at 73.21% 72.485%, rgba(87,87,255,1) 0%, transparent 50%),
+        radial-gradient(at 52% 3%, rgba(117,130,240,1) 0%, transparent 50%),
+        radial-gradient(at 32% 46%, rgba(15,38,101,1) 0%, transparent 50%),
+        radial-gradient(at 26% 98%, rgba(255,132,107,1) 0%, transparent 50%),
+        radial-gradient(at 15.473% 78.439%, rgba(194,238,255,1) 0%, transparent 50%),
+        radial-gradient(at 27% 81%, rgba(223,91,230,1) 0%, transparent 50%)
+      `,
+    }}
+    >
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-10 drop-shadow-lg">
+         دانش‌آموزان دهم ریاضی
+      </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-11/12 max-w-6xl">
+        <Card className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-bold mb-4">دانش‌آموزان ایرانی</h2>
+            <ul className="space-y-3">
+              {iranianStudents.map((s) => (
+                <li
+                  key={s.id}
+                  className="bg-white/20 p-4 rounded-xl flex justify-between items-center"
+                >
+                  <div>
+                    <p className="font-semibold">{s.name}</p>
+                    <p className="text-sm opacity-80">{s.city}</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-purple-700 text-sm">
+                    {s.age} ساله
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-bold mb-4">دانش‌آموزان اتباع</h2>
+            <ul className="space-y-3">
+              {foreignStudents.map((s) => (
+                <li
+                  key={s.id}
+                  className="bg-white/20 p-4 rounded-xl flex justify-between items-center"
+                >
+                  <div>
+                    <p className="font-semibold">{s.name}</p>
+                    <p className="text-sm opacity-80">{s.city}</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-indigo-700 text-sm">
+                    {s.age} ساله
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+    </main>
+  )
 }
